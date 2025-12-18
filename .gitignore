@@ -1,0 +1,42 @@
+# IDE/Editor
+.cursor/
+.vscode/
+.idea/
+
+# Project-specific exclusions
+developing-human-brain/
+report/
+report.md
+submission-guidelines.md
+cell-atlas-paper.md
+
+# Large data files
+data/
+public/data/
+*.h5
+*.hdf5
+*.parquet
+2022.10.24.513487v1.full.pdf
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log

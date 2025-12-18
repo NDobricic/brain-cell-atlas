@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Cell Atlas Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar">
+            <h1>Brain Cell Atlas</h1>
+            
+            <!-- View Selection -->
+            <div class="control-group">
+                <label for="view-select">View:</label>
+                <select id="view-select">
+                    <option value="embedding">Embedding</option>
+                    <option value="composition_age">Composition by Age</option>
+                    <option value="composition_region">Composition by Region</option>
+                    <option value="heatmap">Cluster × Marker Gene</option>
+                    <option value="dotplot">Dot Plot (Class × Gene)</option>
+                    <option value="violin">Violin Plot (Distributions)</option>
+                </select>
+            </div>
+
+            <!-- Dynamic Controls -->
+            <div id="controls">
+                <div class="control-group" id="color-control">
+                    <label for="color-by">Color By:</label>
+                    <select id="color-by">
+                        <optgroup label="Metadata">
+                            <option value="class">Cell Class</option>
+                            <option value="age">Age (PCW)</option>
+                            <option value="region">Brain Region</option>
+                            <option value="mito">Mitochondrial Fraction</option>
+                        </optgroup>
+                        <optgroup label="Marker Genes" id="gene-options">
+                            <!-- Populated by JS -->
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="control-group" id="violin-control" style="display: none;">
+                    <label for="violin-metric">Metric:</label>
+                    <select id="violin-metric">
+                        <option value="age">Age (PCW)</option>
+                        <option value="mito">Mitochondrial Fraction</option>
+                        <optgroup label="Marker Genes" id="violin-gene-options">
+                            <!-- Populated by JS -->
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="legend-container">
+                <h3>Legend</h3>
+                <div id="legend"></div>
+            </div>
+
+            <div id="stats">
+                <div id="embedding-stats">
+                    <p>Visible: <span id="total-count">Loading...</span></p>
+                    <p>Zoom: <span id="zoom-level">1.0x</span> | LOD: <span id="lod-level">0</span></p>
+                </div>
+                <p id="hover-info">Hover over a cell</p>
+            </div>
+        </div>
+        <div id="main-view">
+            <div id="plot-container"></div>
+            <div id="loading-indicator" style="display: none; position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.9rem;">Loading tiles...</div>
+        </div>
+
+        <!-- Right Explanation Sidebar -->
+        <div id="info-sidebar">
+            <div id="info-content">
+                <h2 id="info-title">Plot Information</h2>
+                <div id="info-body">
+                    <!-- Populated by JS -->
+                    <p>Loading description...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
