@@ -131,6 +131,9 @@ def create_cell_record(idx, data):
 
 
 def main():
+    # Create output directory early
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    
     rng = np.random.default_rng(SEED)
     
     # Load all data
@@ -156,9 +159,6 @@ def main():
     # Assign cells to tiles
     print(f"Assigning cells to {GRID_SIZE}x{GRID_SIZE} grid...")
     tile_x, tile_y = assign_tiles(embedding, GRID_SIZE, bounds)
-    
-    # Create output directory
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
     # For each LOD level, subsample and assign a "level" to each cell
     # Cells at level 0 appear at all zoom levels
@@ -201,7 +201,7 @@ def main():
     for lod in LOD_LEVELS:
         level = lod["level"]
         level_dir = OUTPUT_DIR / str(level)
-        level_dir.mkdir(exist_ok=True)
+        level_dir.mkdir(parents=True, exist_ok=True)
         
         print(f"\nLOD {level}:")
         total_cells = 0

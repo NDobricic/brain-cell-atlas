@@ -12,6 +12,9 @@ SEED = 42
 MARKER_GENES = ["SOX2","NES","EOMES","DCX","STMN2","GAD1","GAD2","MBP","AQP4","PDGFRA","MKI67"]
 
 def main():
+    # Create output directory
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    
     print(f"Opening {DATA_PATH}...")
     with h5py.File(DATA_PATH, "r") as f:
         g = f["/shoji"]
