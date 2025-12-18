@@ -47,7 +47,7 @@ async function init() {
                 <p>Each bar represents a different developmental age (in weeks after conception). The colored segments show what fraction of cells belong to each cell class at that age.</p>
                 
                 <h3>Why it matters</h3>
-                <p>The developing brain doesn't just grow—it <strong>changes composition</strong>. Early on, you see more stem cells and progenitors. As development progresses, mature neurons and support cells (glia) become more abundant.</p>
+                <p>The developing brain doesn't just grow - it <strong>changes composition</strong>. Early on, you see more stem cells and progenitors. As development progresses, mature neurons and support cells (glia) become more abundant.</p>
                 
                 <h3>Reading the chart</h3>
                 <p>Look for colors that expand or shrink across ages. A growing segment means that cell type is becoming more common; a shrinking one means it's becoming rarer.</p>
@@ -74,7 +74,7 @@ async function init() {
                 <p>This heatmap shows <strong>gene activity patterns</strong> across 617 cell clusters, organized by their evolutionary relationships.</p>
                 
                 <h3>What am I looking at?</h3>
-                <p>Each row is a cluster of similar cells. Each column is a marker gene—a gene known to identify specific cell types. The color shows how strongly that gene is expressed (active) in that cluster.</p>
+                <p>Each row is a cluster of similar cells. Each column is a marker gene - a gene known to identify specific cell types. The color shows how strongly that gene is expressed (active) in that cluster.</p>
                 
                 <h3>The tree on the left</h3>
                 <p>The branching tree (dendrogram) groups clusters by similarity. Clusters that branch together have similar gene patterns. The colored bar shows the cell class each cluster belongs to.</p>
@@ -109,11 +109,11 @@ async function init() {
                 </ul>
                 
                 <h3>How to read it</h3>
-                <p>A <strong>large, yellow dot</strong> means most cells in that class strongly express the gene—it's a good marker. A <strong>small, dark dot</strong> means the gene is rarely used or weakly expressed.</p>
+                <p>A <strong>large, yellow dot</strong> means most cells in that class strongly express the gene - it's a good marker. A <strong>small, dark dot</strong> means the gene is rarely used or weakly expressed.</p>
                 
                 <h3>Example patterns</h3>
                 <ul>
-                    <li><strong>GAD1/GAD2:</strong> Large yellow dots in Inhibitory neurons—these genes make the enzymes for inhibitory signaling</li>
+                    <li><strong>GAD1/GAD2:</strong> Large yellow dots in Inhibitory neurons - these genes make the enzymes for inhibitory signaling</li>
                     <li><strong>SOX2:</strong> Strong in Radial glia (stem cells) but weak in mature neurons</li>
                 </ul>
             `
@@ -128,8 +128,8 @@ async function init() {
                 
                 <h3>Available metrics</h3>
                 <ul>
-                    <li><strong>Age (PCW):</strong> When cells were sampled—shows if certain cell types appear only at specific developmental stages</li>
-                    <li><strong>Mitochondrial Fraction:</strong> Cellular energy activity—can indicate cell health or metabolic state</li>
+                    <li><strong>Age (PCW):</strong> When cells were sampled - shows if certain cell types appear only at specific developmental stages</li>
+                    <li><strong>Mitochondrial Fraction:</strong> Cellular energy activity - can indicate cell health or metabolic state</li>
                     <li><strong>Gene expression:</strong> Activity level of specific marker genes</li>
                 </ul>
                 

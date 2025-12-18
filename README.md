@@ -45,12 +45,12 @@ python scripts/prepare_tiles.py
 ```
 
 This creates files in `public/data/`:
-- `cells.csv` — 50k sampled cells with embedding coordinates and metadata
-- `clusters.csv` — Cluster-level statistics for all 617 clusters
-- `class_gene_stats.csv` — Class-level gene expression statistics
-- `clusters_linkage.json` — Hierarchical clustering linkage matrix
-- `metadata.json` — Dataset metadata (classes, genes, sample size)
-- `tiles/` — (Optional) Pre-computed spatial tiles for LOD rendering
+- `cells.csv`  -  50k sampled cells with embedding coordinates and metadata
+- `clusters.csv`  -  Cluster-level statistics for all 617 clusters
+- `class_gene_stats.csv`  -  Class-level gene expression statistics
+- `clusters_linkage.json`  -  Hierarchical clustering linkage matrix
+- `metadata.json`  -  Dataset metadata (classes, genes, sample size)
+- `tiles/`  -  (Optional) Pre-computed spatial tiles for LOD rendering
 
 ### 2. Start the Server
 
@@ -67,10 +67,10 @@ This starts a local server at [http://localhost:8000](http://localhost:8000) and
 ### Interactive Cell Embedding
 - **Scatter Plot**: UMAP embedding of 50,000 sampled cells rendered via HTML5 Canvas
 - **Color By**:
-  - Cell Class — categorical coloring by cell type
-  - Age — sequential coloring by post-conception weeks
-  - Region — categorical coloring by brain region
-  - Mitochondrial Fraction — quality metric visualization
+  - Cell Class  -  categorical coloring by cell type
+  - Age  -  sequential coloring by post-conception weeks
+  - Region  -  categorical coloring by brain region
+  - Mitochondrial Fraction  -  quality metric visualization
 
 ### Interaction
 - **Zoom/Pan**: Mouse wheel to zoom, drag to pan
@@ -80,8 +80,8 @@ This starts a local server at [http://localhost:8000](http://localhost:8000) and
 
 ### Frontend
 - Plain HTML5, CSS, and JavaScript (no build step required)
-- [D3.js v7](https://d3js.org/) — scales, data loading, color schemes, zoom behavior, quadtree search
-- HTML5 Canvas — high-performance rendering of 50k+ points
+- [D3.js v7](https://d3js.org/)  -  scales, data loading, color schemes, zoom behavior, quadtree search
+- HTML5 Canvas  -  high-performance rendering of 50k+ points
 
 ### Data Processing
 - Python scripts using `h5py`, `pandas`, `numpy`
@@ -126,7 +126,7 @@ brain-cell-atlas/
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License  -  see [LICENSE](LICENSE) for details.
 
 ## References
 
