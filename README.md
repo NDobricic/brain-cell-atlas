@@ -62,17 +62,25 @@ This starts a local server at [http://localhost:8000](http://localhost:8000) and
 
 ## Features
 
-### Interactive Cell Embedding
-- **Scatter Plot**: UMAP embedding of 50,000 sampled cells rendered via HTML5 Canvas
-- **Color By**:
-  - Cell Class  -  categorical coloring by cell type
-  - Age  -  sequential coloring by post-conception weeks
-  - Region  -  categorical coloring by brain region
-  - Mitochondrial Fraction  -  quality metric visualization
+### Six Visualization Types
+1. **Cell Embedding**: Interactive scatter plot of cells rendered via HTML5 Canvas with tile-based LOD
+2. **Composition by Age**: Stacked area chart showing cell class proportions over developmental time
+3. **Composition by Region**: Stacked bar chart comparing cell mixtures across brain regions
+4. **Cluster Heatmap**: 617 clusters × 11 marker genes with hierarchical dendrogram
+5. **Dot Plot**: Class × gene summary with dual encoding (size = fraction expressing, color = mean expression)
+6. **Violin Plot**: Distribution of age, mitochondrial fraction, or gene expression by cell class
+
+### Color Modes (Embedding View)
+- Cell Class  -  categorical coloring by cell type
+- Age  -  sequential coloring by post-conception weeks (Viridis)
+- Region  -  categorical coloring by brain region
+- Mitochondrial Fraction  -  quality metric visualization (Plasma)
+- Gene Expression  -  marker gene activity (Magma)
 
 ### Interaction
-- **Zoom/Pan**: Mouse wheel to zoom, drag to pan
-- **Hover**: Hover over any cell to see detailed metadata in the sidebar
+- **Zoom/Pan**: Mouse wheel to zoom, drag to pan (embedding view)
+- **Hover**: See detailed metadata in the sidebar
+- **View Switching**: Select different visualizations from the dropdown
 
 ## Technical Details
 
