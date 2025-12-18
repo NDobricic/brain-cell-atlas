@@ -15,8 +15,8 @@ import json
 import os
 from pathlib import Path
 
-DATA_PATH = "./data/HumanFetalBrainPool.h5"
-OUTPUT_DIR = Path("./public/data/tiles")
+DATA_PATH = Path("./data/HumanFetalBrainPool.h5").resolve()
+OUTPUT_DIR = Path("./public/data/tiles").resolve()
 SEED = 42
 
 # Grid configuration
@@ -35,6 +35,9 @@ MARKER_GENES = ["SOX2", "NES", "EOMES", "DCX", "STMN2", "GAD1", "GAD2", "MBP", "
 def load_data():
     """Load all required data from HDF5."""
     print(f"Opening {DATA_PATH}...")
+    if not DATA_PATH.exists():
+        raise FileNotFoundError(f"Data file not found at {DATA_PATH}. Please check the path.")
+        
     with h5py.File(DATA_PATH, "r") as f:
         g = f["/shoji"]
         
@@ -132,6 +135,7 @@ def create_cell_record(idx, data):
 
 def main():
     # Create output directory early
+    print(f"Ensuring output directory exists: {OUTPUT_DIR}")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
     rng = np.random.default_rng(SEED)

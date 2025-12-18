@@ -3,17 +3,19 @@ import numpy as np
 import pandas as pd
 import json
 import os
+from pathlib import Path
 
 # Constants
-DATA_PATH = "./data/HumanFetalBrainPool.h5"
-OUTPUT_DIR = "./public/data"
+DATA_PATH = Path("./data/HumanFetalBrainPool.h5").resolve()
+OUTPUT_DIR = Path("./public/data").resolve()
 SAMPLE_SIZE = 50000  # Number of cells to sample
 SEED = 42
 MARKER_GENES = ["SOX2","NES","EOMES","DCX","STMN2","GAD1","GAD2","MBP","AQP4","PDGFRA","MKI67"]
 
 def main():
     # Create output directory
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    print(f"Ensuring output directory exists: {OUTPUT_DIR}")
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
     print(f"Opening {DATA_PATH}...")
     with h5py.File(DATA_PATH, "r") as f:
@@ -111,7 +113,7 @@ def main():
     df["region"] = df["region"].replace("", "Unknown")
     
     # Save to CSV
-    output_path = os.path.join(OUTPUT_DIR, "cells.csv")
+    output_path = OUTPUT_DIR / "cells.csv"
     print(f"Saving to {output_path}...")
     df.to_csv(output_path, index=False)
     
@@ -123,7 +125,7 @@ def main():
         "total_cells_sampled": len(df)
     }
     
-    with open(os.path.join(OUTPUT_DIR, "metadata.json"), "w") as f:
+    with open(OUTPUT_DIR / "metadata.json", "w") as f:
         json.dump(metadata, f, indent=2)
     
     # Export cluster-level data for heatmap and dendrogram
@@ -140,7 +142,7 @@ def main():
         if "Linkage" in g:
             print("  Exporting linkage matrix...")
             linkage = g["Linkage"][:].tolist()
-            with open(os.path.join(OUTPUT_DIR, "clusters_linkage.json"), "w") as f_link:
+            with open(OUTPUT_DIR / "clusters_linkage.json", "w") as f_link:
                 json.dump(linkage, f_link)
         
         # Get mean expression for marker genes
@@ -175,7 +177,7 @@ def main():
         for i, gene in enumerate(found_genes):
             df_clusters[gene] = mean_expr_z[order, i]
         
-        df_clusters.to_csv(os.path.join(OUTPUT_DIR, "clusters.csv"), index=False)
+        df_clusters.to_csv(OUTPUT_DIR / "clusters.csv", index=False)
         print(f"  Saved clusters.csv with {len(df_clusters)} clusters")
 
         # 2. Export Class-level Stats for Dot Plot
@@ -219,7 +221,7 @@ def main():
             
         df_class_stats["mean_expr_z"] = np.clip(df_class_stats["mean_expr_z"], -3, 3)
         
-        df_class_stats.to_csv(os.path.join(OUTPUT_DIR, "class_gene_stats.csv"), index=False)
+        df_class_stats.to_csv(OUTPUT_DIR / "class_gene_stats.csv", index=False)
         print(f"  Saved class_gene_stats.csv for {len(unique_classes)} classes")
         
     print("Done!")
