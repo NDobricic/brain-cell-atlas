@@ -50,7 +50,7 @@ This creates files in `public/data/`:
 - `class_gene_stats.csv`  -  Class-level gene expression statistics
 - `clusters_linkage.json`  -  Hierarchical clustering linkage matrix
 - `metadata.json`  -  Dataset metadata (classes, genes, sample size)
-- `tiles/`  -  (Optional) Pre-computed spatial tiles for LOD rendering
+- `tiles/`  -  Pre-computed spatial tiles for LOD rendering
 
 ### 2. Start the Server
 
