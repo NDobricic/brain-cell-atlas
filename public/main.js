@@ -31,6 +31,7 @@ async function init() {
                     <li><strong>Cell Class:</strong> Major cell types like neurons, glia, and immune cells</li>
                     <li><strong>Age:</strong> When the sample was collected (weeks after conception)</li>
                     <li><strong>Region:</strong> Which part of the brain the cell came from</li>
+                    <li><strong>Mitochondrial Fraction:</strong> Cellular energy activity - can indicate cell health or metabolic state</li>
                     <li><strong>Gene expression:</strong> How active a specific gene is in each cell</li>
                 </ul>
                 
@@ -41,10 +42,10 @@ async function init() {
         composition_age: {
             title: "Composition by Age",
             body: `
-                <p>This stacked bar chart shows how the <strong>mixture of cell types changes</strong> as the brain develops.</p>
+                <p>This stacked area chart shows how the <strong>mixture of cell types changes</strong> as the brain develops.</p>
                 
                 <h3>What am I looking at?</h3>
-                <p>Each bar represents a different developmental age (in weeks after conception). The colored segments show what fraction of cells belong to each cell class at that age.</p>
+                <p>Each vertical slice represents a different developmental age (in weeks after conception). The colored areas show what fraction of cells belong to each cell class at that age.</p>
                 
                 <h3>Why it matters</h3>
                 <p>The developing brain doesn't just grow - it <strong>changes composition</strong>. Early on, you see more stem cells and progenitors. As development progresses, mature neurons and support cells (glia) become more abundant.</p>
@@ -71,7 +72,7 @@ async function init() {
         heatmap: {
             title: "Cluster × Marker Gene Heatmap",
             body: `
-                <p>This heatmap shows <strong>gene activity patterns</strong> across 617 cell clusters, organized by their evolutionary relationships.</p>
+                <p>This heatmap shows <strong>gene activity patterns</strong> across 617 cell clusters, organized by their hierarchical relationships.</p>
                 
                 <h3>What am I looking at?</h3>
                 <p>Each row is a cluster of similar cells. Each column is a marker gene - a gene known to identify specific cell types. The color shows how strongly that gene is expressed (active) in that cluster.</p>
@@ -88,6 +89,7 @@ async function init() {
                 <h3>Key marker genes</h3>
                 <ul>
                     <li><strong>SOX2, NES:</strong> Stem cells and progenitors</li>
+                    <li><strong>EOMES:</strong> Intermediate progenitors</li>
                     <li><strong>DCX, STMN2:</strong> Young neurons</li>
                     <li><strong>GAD1, GAD2:</strong> Inhibitory neurons</li>
                     <li><strong>MBP, PDGFRA:</strong> Oligodendrocytes (insulation cells)</li>
@@ -113,7 +115,7 @@ async function init() {
                 
                 <h3>Example patterns</h3>
                 <ul>
-                    <li><strong>GAD1/GAD2:</strong> Large yellow dots in Inhibitory neurons - these genes make the enzymes for inhibitory signaling</li>
+                    <li><strong>GAD1/GAD2:</strong> Large yellow dots in Neuron class - these genes mark inhibitory neurons that use GABA signaling</li>
                     <li><strong>SOX2:</strong> Strong in Radial glia (stem cells) but weak in mature neurons</li>
                 </ul>
             `
