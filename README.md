@@ -21,14 +21,12 @@ pip install -r requirements.txt
 
 ## Data Setup
 
-Download the following files and place them in the `data/` directory:
+Download the following files (h5 and xlsx) from the [Human Cell Atlas Data Portal](https://explore.data.humancellatlas.org/projects/cbd2911f-252b-4428-abde-69e270aefdfc/get-curl-command) and place them in the `data/` directory:
 
 | File | Description |
 |------|-------------|
 | `HumanFetalBrainPool.h5` | Main HDF5 dataset (~10 GB) containing expression matrix, embeddings, and annotations |
 | `FetalEmbryonicBrain_metadata_24-01-2023.xlsx` | (Optional) Additional sample metadata |
-
-Data source: [Human Cell Atlas Data Portal](https://explore.data.humancellatlas.org/projects/cbd2911f-252b-4428-abde-69e270aefdfc)
 
 ## Running the Visualization
 
